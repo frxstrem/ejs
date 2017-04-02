@@ -95,7 +95,7 @@ exports = module.exports = function (app, settings) {
   app.context.render = async function (view, _context) {
     const ctx = this;
 
-    const context = Object.assign({}, ctx.state, _context);
+    const context = Object.assign({}, settings.locals, ctx.state, _context);
 
     let html = await render(view, context);
 
